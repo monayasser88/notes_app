@@ -4,11 +4,12 @@ import 'package:notes_app/cubits/cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_appbar.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
+import 'package:notes_app/widgets/edit_note_color.dart';
 
 class EditNoteWidget extends StatefulWidget {
-  const EditNoteWidget({super.key, required this.note});
-  final NoteModel note;
+  const EditNoteWidget({Key? key, required this.note}): super(key: key);
 
+  final NoteModel note;
   @override
   State<EditNoteWidget> createState() => _EditNoteWidgetState();
 }
@@ -55,10 +56,14 @@ class _EditNoteWidgetState extends State<EditNoteWidget> {
             },
             maxLines: 5,
           ),
+          SizedBox(
+            height: 20,
+          ),
+          EditNotesColor(
+            note: widget.note,
+          )
         ],
       ),
     );
   }
 }
-
-
